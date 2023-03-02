@@ -1,5 +1,6 @@
 package pl.kurs.equationsolverapp.service;
 
+import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
 import pl.kurs.equationsolverapp.exception.InvalidEquationFormatException;
 import pl.kurs.equationsolverapp.exception.UnknownOperatorException;
@@ -15,14 +16,10 @@ import java.util.stream.Collectors;
 @Service
 public class EquationSolverService implements IEquationSolverService {
 
-
-    private AdditionOperator additionOperator = new AdditionOperator();
-    private MultiplicationOperator multiplicationOperator = new MultiplicationOperator();
-    private SubtractionOperator subtractionOperator = new SubtractionOperator();
-    private DivisionOperator divisionOperator = new DivisionOperator();
-
-    public EquationSolverService() {
-    }
+    private AdditionOperator additionOperator;
+    private MultiplicationOperator multiplicationOperator;
+    private SubtractionOperator subtractionOperator;
+    private DivisionOperator divisionOperator;
 
     public EquationSolverService(AdditionOperator additionOperator, MultiplicationOperator multiplicationOperator, SubtractionOperator subtractionOperator, DivisionOperator divisionOperator) {
         this.additionOperator = additionOperator;
